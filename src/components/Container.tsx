@@ -408,6 +408,8 @@ const Container = ({ company, isBillFetching = false, data = null }) => {
                 setIsLoading={setIsLoading}
                 save={handleBillSave}
                 data={data}
+                bill_date={bill_date}
+                company={company}
             />
         </div>
     );

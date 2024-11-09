@@ -13,7 +13,14 @@ import ButtonWithTooltip from "./ButtonWithTooltip";
 import jsPDF from "jspdf";
 import { toJpeg } from "html-to-image";
 
-const FloatingButtons = ({ reset, setIsLoading, save, data = null }) => {
+const FloatingButtons = ({
+    reset,
+    setIsLoading,
+    save,
+    data = null,
+    bill_date,
+    company,
+}) => {
     const [isOpen, setIsOpen] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
     const [isPDFLoading, setIsPDFLoading] = useState(false);
@@ -112,7 +119,7 @@ const FloatingButtons = ({ reset, setIsLoading, save, data = null }) => {
                 scaledHeight
             );
 
-            pdf.save("challan-form.pdf");
+            pdf.save(`${bill_date}-${company}.pdf`);
             setIsPDFLoading(false);
         }
     };
@@ -143,7 +150,7 @@ const FloatingButtons = ({ reset, setIsLoading, save, data = null }) => {
 
             const link = document.createElement("a");
             link.href = imgDataUrl;
-            link.download = "challan-form.jpeg";
+            link.download = `${bill_date}-${company}.jpeg`;
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
