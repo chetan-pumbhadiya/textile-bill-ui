@@ -161,7 +161,7 @@ const Container = ({ company, isBillFetching = false, data = null }) => {
     };
 
     useEffect(() => setIsLoading(isDataSaving), [isDataSaving, isBillFetching]);
-    useEffect(() => handleBillReset(), [isSuccess]);
+    // useEffect(() => handleBillReset(), [isSuccess]);
 
     useEffect(() => {
         if (data) {
